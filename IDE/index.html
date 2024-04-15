@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online IDE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>    
+    <div class="container">
+        <button class="run-button" id="runButton">Run</button>
+        <div class="editor-container">
+            <textarea id="code" class="editor"></textarea>
+
+        </div>
+        <div class="output-container">
+            <div class="input-section">
+                <textarea id="input" placeholder="Input"></textarea>
+            </div>
+            <div class="output-section">
+                <pre id="output" class="output"></pre>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+    <script src="three.r134.min.js"></script>
+    <script src="vanta.waves.min.js"></script>
+    <script>
+        VANTA.WAVES({
+            el: "body",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x882c00
+        })
+    </script>
+</body>
+
+</html>
