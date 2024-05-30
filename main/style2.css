@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+   background-color :black;
+   font-family: 'Baloo Bhai 2', sans-serif;
+   font-family: 'Kanit', sans-serif;
+
+}
+
+
+h3{
+    /* color: white; */
+    display: inline;
+    color: orange;
+}
+nav{
+    /* border: 2px solid white ; */
+    height: 59px;
+    background-color: #004daa;
+}
+.input1{
+    display: flex;
+    align-items: center;
+    height: 55px;
+    justify-content:space-around;
+    /* text-align: center; */
+    /* justify-content: center; */
+    
+
+}
+button{
+    /* margin-left: 12px; */
+    /* margin-right: 106px; */
+    padding: 4px 14px ;
+    color: black;
+    font-weight: bold;
+    box-shadow: none; /* Remove the box shadow */
+    background-color: #004daa;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    
+}
+button:hover{
+    border-radius: 9px;
+    padding: 4px 17px ;
+    cursor: pointer;
+    background-color: white;
+}
+div.ide{
+    border: 3px solid #272727;;
+    height: 100vh;
+    width: 61%;
+    margin-left: 40px;
+    /* display: inline; */
+    position:absolute;
+    top:75px;
+    /* border: 2px solid gold; */
+    /* background-color: black; */
+    border-radius: 7px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); /* Increased intensity */
+
+
+
+}
+
+div.input{
+    /* display: inline; */
+    /* border: 2px solid white; */
+    /* box-shadow: 0 0 10px rgba(255, 255, 2355, 1.5); */
+    width: 34%;
+    position:absolute;
+    top: 65px;
+    right: 0px;
+    height: 40px;
+    /* height: 320px; */
+    display: flex;
+    align-items: center;
+     /* background-color:  #272727;  */
+     background: #272727;
+     
+    
+}
+
+div.output{
+    /* display: inline; */
+    /* border: 2px solid white; */
+    /* box-shadow: 0 0 10px rgba(455, 555, 2355, 1.5); */
+    width: 34%;
+    position:absolute;
+    top: 417px;
+    right: 0px;
+    /* height: 350px; */
+    display: flex;
+    /* align-items: center; */
+    height: 40px;
+    display: flex;
+    align-items: center;
+    background: #272727;
+}
+.textarea1{
+    height: 290px;
+    position: absolute;
+    top: 50px;
+    background-color: black;
+    border-radius: 5px;
+    color: white;
+}
+.textarea2{
+    height: 300px;
+    position: absolute;
+    top: 50px;
+    background-color:black;
+    border-radius: 5px;
+    color: white;
+}
+
+.textarea3{
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    color: white;
+}
+
+

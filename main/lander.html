@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Webpage Design</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">CodeBasic</h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Documentation</a></li>
+                    <!-- <li><a href="#">DESIGN</a></li>
+                    <li><a href="#">CONTACT</a></li> -->
+                </ul>
+            </div>
+
+            <!-- <div class="search">
+                <input class="srch" type="search" name="" placeholder="Type To text">
+                <a href="#"> <button class="btn">Search</button></a>
+            </div> -->
+
+        </div>
+        <div class="content">
+            <h1>A programming language for <br><span class="typed-text"></span><span class="cursor">&nbsp;</span></h1>
+            <p class="par">"Welcome to our innovative coding platform, where creativity meets functionality. Unleash
+                your<br> potential with our user-friendly IDE, designed for both beginners and seasoned developers.<br>
+                Dive into a seamless coding experience, backed by powerful features and a supportive community.<br>
+                Transform your ideas into reality; code with confidence on our platform."</p>
+
+            <button class="cn"><a href="../login/login.html">TRY NOW</a></button>
+
+            <div class="form">
+                <button onclick="openLoginFile()" class="lbtn">Login Here</button>
+                <button onclick="openRegistrationFile()"" class="rbtn">Register Here</button>
+                <!-- <input type="email" name="email" placeholder="Enter Email Here">
+                <input type="password" name="" placeholder="Enter Password Here">
+                <button class="btnn"><a href="#">Login</a></button>
+
+                <p class="link">Don't have an account<br>
+                    <a href="#">Sign up </a> here</a>
+                </p>
+                <p class="liw">Log in with</p>
+
+                <div class="icons">
+                    <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-google"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-skype"></ion-icon></a>
+                    <img src="image8-2.webp" alt="social_media" id="img" name="img">
+                    <img src="download.png" alt="social_media" id="img" name="img">
+                </div> -->
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+    <div id="title">
+        
+    </div>
+
+    <script>
+        const typedTextSpan = document.querySelector(".typed-text");
+const cursorSpan = document.querySelector(".cursor");
+
+const textArray = ["Beginners", "Learners", "Enthusiasts"];
+const typingDelay = 100;
+const erasingDelay = 100;
+const newTextDelay = 1000; // Delay between current and next text
+let textArrayIndex = 0;
+let charIndex = 0;
+
+function openLoginFile(){
+    window.location.href = '../login/login.html'
+}
+function openRegistrationFile(){
+    window.location.href = '../registration/registration.html'
+}
+function type() {
+  if (charIndex < textArray[textArrayIndex].length) {
+    if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+    typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+    charIndex++;
+    setTimeout(type, typingDelay);
+  } 
+  else {
+    cursorSpan.classList.remove("typing");
+  	setTimeout(erase, newTextDelay);
+  }
+}
+
+function erase() {
+	if (charIndex > 0) {
+    if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+    typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
+    charIndex--;
+    setTimeout(erase, erasingDelay);
+  } 
+  else {
+    cursorSpan.classList.remove("typing");
+    textArrayIndex++;
+    if(textArrayIndex>=textArray.length) textArrayIndex=0;
+    setTimeout(type, typingDelay + 1100);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() { // On DOM Load initiate the effect
+  if(textArray.length) setTimeout(type, newTextDelay + 250);
+});
+    </script>
+</body>
+
+</html>

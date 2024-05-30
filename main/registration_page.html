@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@700;800&family=Kanit&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Baloo Bhai 2', sans-serif;
+            font-family: 'Kanit', sans-serif;
+            background-image: url('wp5633761.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100%;
+        }
+
+        .sub_container {
+            width: 450px;
+            border: 2px solid black;
+            height: 570px;
+            /* margin-top: 0px; */
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 26px;
+            background-color: #333333;
+            box-shadow: 4px 4px 3px 9px rgba(50, 50, 50, 0.3);
+            border: 1px solid #333333;
+
+        }
+
+        .main_container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .input {
+            margin: 10px;
+            /* margin-top: 30px; */
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+
+        }
+
+        label {
+            display: block;
+            font-size: 20px;
+            color: orange;
+        }
+
+        h1 {
+            text-align: center;
+            /* margin-top: 18px; */
+            color: orange;
+            margin-bottom: 10px;
+        }
+
+        input {
+            /* display: block; */
+            padding: 6px 38px;
+            border-radius: 9px;
+            border: none;
+            margin-top: 7px;
+        }
+
+        button {
+            padding: 7px 19px;
+            border-radius: 8px;
+            border: none;
+            background-color: orange;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: #FF9500;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main_container">
+        <div class="sub_container">
+            <h1>SignUp</h1>
+            <div class="input">
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Enter Your Name">
+            </div>
+            <div class="input">
+                <label for="username">Username:</label>
+                <input type="text" id="username" placeholder="Enter Your Username">
+            </div>
+            <div class="input">
+                <label for="email">E-mail:</label>
+                <input type="text" id="email" placeholder="Enter Your E-mail">
+            </div>
+            <div class="input">
+                <label for="password">Password:</label>
+                <input type="text" id="password" placeholder="Enter Your password">
+            </div>
+            <div class="input">
+                <label for="confirm_password">Confirm Password:</label>
+                <input type="text" id="confirm_password" placeholder="confirm Your Password">
+            </div>
+
+            <button id="signup">Signup</button>
+        </div>
+    </div>
+    <script>
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDEnvbfivr9-EFeICs81fDHp09vI1W6smY",
+            authDomain: "codebasic-e025f.firebaseapp.com",
+            projectId: "codebasic-e025f",
+            storageBucket: "codebasic-e025f.appspot.com",
+            messagingSenderId: "1019261821888",
+            appId: "1:1019261821888:web:5735aebeddcde9f0685e25",
+            measurementId: "G-S8XQ4S0WK5"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        // Sign up function
+        document.getElementById('signupBtn').addEventListener('click', () => {
+            const name = document.getElementById('name').value;
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm_password').value;
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            set(ref(db, 'users/' + username), {
+                name: name,
+                username: username,
+                email: email,
+                password: password
+            })
+                .then(() => {
+                    alert('User registered successfully!');
+                    // Redirect to login page or another action
+                })
+                .catch((error) => {
+                    console.error('Error writing to database: ', error);
+                });
+        });
+
+    </script>
+</body>
+
+</html>
