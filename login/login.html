@@ -146,7 +146,7 @@
         const password = document.getElementById('password').value;
         getDoc(doc(db, 'users', username)).then(docSnap => {
             if (docSnap.exists()) {
-                window.location.href = '../IDE/index.html';
+                window.location.href = '/register';
             }
             else {
                 console.log('nothing');
